@@ -5,6 +5,8 @@ import com.demo.entity.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService{
     @Resource
@@ -25,5 +27,10 @@ public class UserServiceImpl implements UserService{
         }
 
         return result;
+    }
+
+    @Override
+    public List<User> getAll() {
+        return userDao.findAll();
     }
 }
