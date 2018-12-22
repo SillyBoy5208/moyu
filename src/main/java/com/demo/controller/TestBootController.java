@@ -1,5 +1,6 @@
 package com.demo.controller;
 
+import com.common.ResponseVO;
 import com.demo.entity.User;
 import com.demo.service.UserService;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -27,6 +28,13 @@ public class TestBootController {
     public User getUserById(Integer userId){
         System.out.println("111111111111");
         return userService.getUserById(userId);
+    }
+    @RequestMapping("/addUser")
+    public ResponseVO<User> addUser(User user){
+        userService.addUser(user);
+        ResponseVO<User> responseVO = new ResponseVO<>();
+        responseVO.setSuccess(true);
+        return responseVO;
     }
 
 }
