@@ -26,6 +26,7 @@ public class UserDaoTest {
     }
     @Test
     public void insert(){
+        //test
         for(int i = 0 ; i < 100;i++){
             User user = new User();
             user.setId(i+10);
