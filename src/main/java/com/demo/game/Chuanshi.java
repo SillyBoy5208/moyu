@@ -41,7 +41,7 @@ public class Chuanshi {
 				//"http://mu.xyhero.com/chuanqi/s2/ditu/2/map4.php",
 				"http://mu.xyhero.com/chuanqi/s2/ditu/4/map1.php"
 		};
-		String cookie = getCookie("��������", "2672665a");
+		String cookie = getCookie("开开心心", "2672665a");
 		System.out.println(cookie);
 		while(true){
 			CloseableHttpClient client = HttpClientBuilder.create().build();
@@ -63,8 +63,8 @@ public class Chuanshi {
 //					if (bossHP<=0) {
 //						break;
 //					}
-					System.out.println("�ҵ�Ѫ��:"+elements1.get(4).text().substring(3));
-					System.out.println(bossName+"��Ѫ��:"+bossHP);
+					System.out.println("我的血量:"+elements1.get(4).text().substring(3));
+					System.out.println(bossName+"的血量:"+bossHP);
 					Thread.sleep(1000);
 			}
 			// get.releaseConnection();
