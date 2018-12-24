@@ -15,7 +15,7 @@ public class Transmit {
         ServerSocket serverSocket = new ServerSocket(55566);
         while (true){
             Socket socket1 = serverSocket.accept();
-            Socket socket2 = new Socket(host,3306);
+            Socket socket2 = new Socket(host,port);
             System.out.println(socket1);
             InputStream in1 = socket1.getInputStream();
             OutputStream out1 = socket1.getOutputStream();

@@ -11,18 +11,31 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes= MoyuApplication.class)
 public class UserDaoTest {
     @Autowired
     UserService userService;
+    @Autowired
+    UserDao userDao;
+//    @Autowired
+//    UserRepository userRepository;
     @Test
     public void test(){
        List<User> list =  userService.getAll();
         System.out.println("list:"+list.size());
        for(User user:list)
            System.out.println(user);
+    }
+    @Test
+    public void test2(){
+//        User user = userRepository.findUserById(1);
+//        System.out.println(user);
+    }
+    @Test
+    public void test3(){
+        List<User> all = userDao.findAll();
+        all.forEach(e -> System.out.println(e.toString()));
     }
     @Test
     public void insert(){
