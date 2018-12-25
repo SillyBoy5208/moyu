@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.demo.dao")
+@MapperScan({"com.demo.dao","com.demo.mapper"})
 public class MoyuApplication {
 
     public static void main(String[] args) {

@@ -2,6 +2,7 @@ package com.demo.dao;
 
 import com.demo.MoyuApplication;
 import com.demo.entity.User;
+import com.demo.repository.UserRepository;
 import com.demo.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +20,7 @@ public class UserDaoTest {
     @Autowired
     UserDao userDao;
 //    @Autowired
-//    UserRepository userRepository;
+   UserRepository userRepository;
     @Test
     public void test(){
        List<User> list =  userService.getAll();
