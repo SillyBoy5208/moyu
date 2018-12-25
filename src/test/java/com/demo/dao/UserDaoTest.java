@@ -17,10 +17,13 @@ import java.util.List;
 public class UserDaoTest {
     @Autowired
     UserService userService;
+
     @Autowired
     UserDao userDao;
-//    @Autowired
-   UserRepository userRepository;
+
+    @Autowired
+    UserRepository userRepository;
+
     @Test
     public void test(){
        List<User> list =  userService.getAll();
