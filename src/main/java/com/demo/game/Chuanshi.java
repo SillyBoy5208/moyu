@@ -82,7 +82,7 @@ public class Chuanshi {
         post.setHeader("Content-Type","application/x-www-form-urlencoded");
         NameValuePair name = new BasicNameValuePair("username",username);
         NameValuePair pass = new BasicNameValuePair("password",password);
-        NameValuePair submit = new BasicNameValuePair("submit","��¼");
+        NameValuePair submit = new BasicNameValuePair("submit","登录");
         List<NameValuePair> list = new ArrayList<NameValuePair>();
         list.add(name);
         list.add(pass);
