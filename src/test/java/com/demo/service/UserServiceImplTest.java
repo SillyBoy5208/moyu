@@ -38,4 +38,10 @@ public class UserServiceImplTest {
             System.out.println(o);
         });
     }
+    @Test
+    public void getAll3(){
+        userService.queryStudentsBySql(1,10).forEach(o->{
+            System.out.println(o);
+        });
+    }
 }

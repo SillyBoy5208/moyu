@@ -15,4 +15,5 @@ public interface UserService  {
     Page<User> queryUsers(PageQueryDTO pageDTO);
     PageDTO<User> queryUsers2(PageQueryDTO pageQueryDTO);
     List<User> getAll();
+    List<User> queryStudentsBySql(int currentPage,int pageSize);
 }

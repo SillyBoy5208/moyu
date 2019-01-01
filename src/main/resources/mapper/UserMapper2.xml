@@ -82,4 +82,7 @@
         age = #{age,jdbcType=INTEGER}
         where id = #{id,jdbcType=INTEGER}
     </update>
+    <select id="queryUserBySql" parameterType="java.util.Map" resultType="com.demo.entity.User">
+        SELECT * FROM user limit #{currentIndex} ,#{pageSize}
+    </select>
 </mapper>
