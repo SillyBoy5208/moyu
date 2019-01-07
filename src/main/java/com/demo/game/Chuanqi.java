@@ -26,12 +26,13 @@ public class Chuanqi {
         String url71  = "http://mu.xyhero.com/cq/s11/ditu/zbmap1/map6.php";//5万级装备怪物
           String url8 = "http://mu.xyhero.com/cq/s11/ditu/12/map6.php";//红野猪B
         String url9 = "http://mu.xyhero.com/cq/s11/ditu/13/map1.php";//角蝇A
+        String url10 = "http://mu.xyhero.com/cq/s11/ditu/14/map7.php";//野猪王
      //   String url13 = "http://mu.xyhero.com/cq/s11/ditu/11/map4.php";//钳虫C
 //        String url8 = "http://mu.xyhero.com/cq/s11/ditu/9/map1.php";
 //        String url9 = "http://mu.xyhero.com/cq/s11/ditu/qugui/map11.php";//废弃矿洞恶鬼（一刀十怪）
 //        String url10 ="http://mu.xyhero.com/cq/s11/ditu/qugui/map12.php";//废弃矿洞恶鬼（一刀百怪）
 //        String url11 = "http://mu.xyhero.com/cq/s11/ditu/qugui/map14.php";//废弃矿洞恶鬼（一刀万怪）
-        String[] urls = {url7,url71,url71,url73};
+        String[] urls = {url72};
        String cookie = GameUtil.getCookie("netty","2672665a",GameUtil.chuanQi11);
         //String cookie = "pgv_pvi=3159361536; pgv_si=s278248448; PHPSESSID=5p8r5e1oenoqs5thtakn4q4lpfcbu7ij; __tins__19587789=%7B%22sid%22%3A%201546221939539%2C%20%22vd%22%3A%201%2C%20%22expires%22%3A%201546223739539%7D; __51cke__=; __51laig__=3";
 
