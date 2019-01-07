@@ -10,10 +10,9 @@ import org.springframework.stereotype.Controller;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-@Component
+
 public class Magicians implements Person{
-    @Autowired
-    UserService userService;
+
    long lastTime = System.currentTimeMillis();
 
     public Magicians(long blood, long attack, long defense) {
@@ -92,15 +91,16 @@ public class Magicians implements Person{
     }
 
     @Override
-    public synchronized String PK(int userId, Monster monster) {
-//        if (System.currentTimeMillis() - lastTime <1000){
-//            return "一秒内不允许多次攻击";
-//        }
+    public synchronized String PK(PackageService packageService ,int userId, Monster monster) {
+
         if (monster instanceof Boss){
             Boss boss = (Boss) monster;
             if (boss.getBlood()<=0){
                 return "BOSS还未刷新";
             }
+//            if (System.currentTimeMillis() - lastTime <1000){
+//                return "一秒内不允许多次攻击";
+//            }
             long bossBlood = this.attack - boss.getDefense();
             long myBlood = boss.getAttack() - this.defense;
             if (myBlood>0){
@@ -120,7 +120,6 @@ public class Magicians implements Person{
                     boss.setBlood(100000);
                     System.out.println("boss刷新");
                 }).start();
-                PackageService packageService = new PackageServiceImpl();
                Package p = packageService.findById(userId);
                p.setMoney(p.getMoney()+10000);
                p.setXo(p.getXo()+100);

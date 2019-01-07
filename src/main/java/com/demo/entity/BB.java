@@ -10,25 +10,39 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "BB")
+@Table(name = "bb")
 @DynamicInsert
 @DynamicUpdate
 public class BB {
-    public int getMaster() {
-        return master;
+    public int getIdMaster() {
+        return idMaster;
     }
 
-    public void setMaster(int master) {
-        this.master = master;
+    @Override
+    public String toString() {
+        return "BB{" +
+                "idMaster=" + idMaster +
+                ", id=" + id +
+                ", bbName=" + bbName +
+                ", bbBlood=" + bbBlood +
+                ", bbAttack=" + bbAttack +
+                ", bbDefence=" + bbDefence +
+                ", bbStart=" + bbStart +
+                ", bbScore=" + bbScore +
+                '}';
     }
 
-    int master;
+    public void setIdMaster(int idMaster) {
+        this.idMaster = idMaster;
+    }
+
+    int idMaster;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    int bbName;
+    String bbName;
 
     public int getId() {
         return id;
@@ -38,11 +52,11 @@ public class BB {
         this.id = id;
     }
 
-    public int getBbName() {
+    public String getBbName() {
         return bbName;
     }
 
-    public void setBbName(int bbName) {
+    public void setBbName(String bbName) {
         this.bbName = bbName;
     }
 
