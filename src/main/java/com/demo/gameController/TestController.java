@@ -20,6 +20,6 @@ public class TestController extends BaseController{
     public String attack(){
         int userId = getUserId();
         System.out.println("pk一次");
-       return magicians.PK(boss);
+       return magicians.PK(userId,boss);
     }
 }

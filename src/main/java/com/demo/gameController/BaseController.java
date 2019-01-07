@@ -17,12 +17,12 @@ public class BaseController {
     HttpServletRequest request;
 
     public int getUserId(){
-        HttpSession session = request.getSession();
-        User user = (User)session.getAttribute("user");
-        if (ObjectUtils.isEmpty(user)){
-            return 0;
-        }
-        return user.getId();
+//        HttpSession session = request.getSession();
+//        User user = (User)session.getAttribute("user");
+//        if (ObjectUtils.isEmpty(user)){
+//            return 0;
+//        }
+        return 4;
 
     }
 }
