@@ -3,11 +3,7 @@ package com.demo.entity;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "package")
@@ -52,5 +48,6 @@ public class Package {
 
     long money;
     int xo;
+    @Column(name = "experience_orb")
     int experienceOrb;
 }

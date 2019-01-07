@@ -1,6 +1,7 @@
 package com.demo.game;
 
 import com.demo.entity.Package;
+import com.demo.form.PKResponseForm;
 import com.demo.service.PackageService;
 import com.demo.service.PackageServiceImpl;
 import com.demo.service.UserService;
@@ -91,12 +92,15 @@ public class Magicians implements Person{
     }
 
     @Override
-    public synchronized String PK(PackageService packageService ,int userId, Monster monster) {
+    public synchronized PKResponseForm PK(PackageService packageService , int userId, Monster monster) {
 
+        PKResponseForm form = new PKResponseForm();
         if (monster instanceof Boss){
             Boss boss = (Boss) monster;
             if (boss.getBlood()<=0){
-                return "BOSS还未刷新";
+                form.setMessage("BOSS还未刷新");
+                form.setMyBlood((int)this.getBlood());
+                return form;
             }
 //            if (System.currentTimeMillis() - lastTime <1000){
 //                return "一秒内不允许多次攻击";
@@ -120,18 +124,20 @@ public class Magicians implements Person{
                     boss.setBlood(100000);
                     System.out.println("boss刷新");
                 }).start();
-               Package p = packageService.findById(userId);
-               p.setMoney(p.getMoney()+10000);
-               p.setXo(p.getXo()+100);
-               p.setExperienceOrb(p.getExperienceOrb()+100);
-               packageService.save(p);
-                return "恭喜你打败了沼泽招魂使BOSS，获得魔石*10000，25星XO*100，特级经验球*100";
             }
-            StringBuilder sb = new StringBuilder();
-            sb.append("您的血量：").append(this.blood).append(" ").append("Boss的血量:").append(boss.getBlood());
-            return sb.toString();
+            Package p = packageService.findById(userId);
+            p.setMoney(p.getMoney()+10000);
+            p.setXo(p.getXo()+100);
+            p.setExperienceOrb(p.getExperienceOrb()+100);
+            packageService.save(p);
+            form.setBossBlood((int)boss.getBlood());
+            form.setMyBlood((int)this.getBlood());
+            form.setMyBloodReduce(myBlood>0?(int)myBlood:0);
+            form.setBossBloodReduce(bossBlood>0?(int)bossBlood:0);
+            return form;
         }else {
-            return "未知的怪兽";
+            form.setMessage("未知的怪兽");
+            return form;
         }
     }
 }

@@ -3,6 +3,7 @@ package com.demo.gameController;
 import com.common.ResponseVO;
 import com.demo.entity.BB;
 import com.demo.entity.Package;
+import com.demo.form.PKResponseForm;
 import com.demo.game.Boss;
 import com.demo.game.Magicians;
 import com.demo.service.BBService;
@@ -27,8 +28,9 @@ public class TestController extends BaseController{
     ScheduledExecutorService service = Executors.newScheduledThreadPool(10);
     static Boss boss = new Boss(100000,1000,1000);
     static Magicians magicians = new Magicians(1000000000,10000,100);
+
     @RequestMapping("/PK")
-    public String attack(){
+    public PKResponseForm attack(){
         int userId = getUserId();
         System.out.println("pk一次");
        return magicians.PK(packageService,userId,boss);
