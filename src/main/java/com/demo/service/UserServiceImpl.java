@@ -21,10 +21,22 @@ import java.util.List;
 public class UserServiceImpl implements UserService{
     @Resource
     UserDao userDao;
+
+    @Override
+    public List<User> findAll() {
+        return userDao.findAll();
+    }
+
     @Override
     public User getUserById(int userId) {
         return null;
     }
+
+    @Override
+    public User getUserByUserName(String userName) {
+        return userDao.findUserByUserName(userName);
+    }
+
     @Autowired
     UserMapper userMapper;
     @Override

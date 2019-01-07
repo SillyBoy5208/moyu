@@ -10,4 +10,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 @Repository
 public interface UserDao extends JpaSpecificationExecutor<User>,JpaRepository<User,Integer> {
+    User findUserByUserName(String name);
+    List<User> findAll();
 }

@@ -9,8 +9,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface UserService  {
+    List<User> findAll();
     User getUserById(int userId);
-
+    User getUserByUserName(String userName);
     boolean addUser(User record);
     Page<User> queryUsers(PageQueryDTO pageDTO);
     PageDTO<User> queryUsers2(PageQueryDTO pageQueryDTO);
