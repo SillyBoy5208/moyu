@@ -6,9 +6,35 @@
       <pattern>%-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
     </encoder>
   </appender>
-
+  <!--<appender name="dbtest" class="ch.qos.logback.classic.db.DBAppender">-->
+    <!--&lt;!&ndash;No layout specified for appender named [db] of class [org.apache.log4j.jdbc.JDBCAppender]&ndash;&gt;-->
+    <!--<URL>jdbc:jtds:SqlServer://localhost:3306;DatabaseName=test</URL>-->
+    <!--<driver>net.sourceforge.jtds.jdbc.Driver</driver>-->
+    <!--<sql>insert into WDZLOG (LogName,UserName,Class,Mothod,createTime,LogLevel,MSG) values ('%X{userId}','%X{userName}','%C','%M','%d{yyyy-MM-dd HH:mm:ss}','%p','%m')</sql>-->
+    <!--<BufferSize>10</BufferSize>-->
+    <!--<password>root</password>-->
+    <!--<user>root</user>-->
+  <!--</appender>-->
+  <!--<appender name="DBDB-CLASSIC-MYSQL-POOL" class="ch.qos.logback.classic.db.DBAppender">-->
+    <!--<connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">-->
+      <!--<dataSource class="org.apache.commons.dbcp.BasicDataSource">-->
+      <!--<driverClassName>com.mysql.jdbc.Driver</driverClassName>-->
+      <!--<url>jdbc:mysql://localhost:3306/test?serverTimezone=GMT</url>-->
+      <!--<username>root</username>-->
+      <!--<password>root</password>-->
+    <!--</dataSource>-->
+    <!--</connectionSource>-->
+    <!--&lt;!&ndash;这里设置日志级别为error&ndash;&gt;-->
+    <!--<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+      <!--<level>error</level>-->
+      <!--<onMatch>ACCEPT</onMatch>-->
+      <!--<onMismatch>DENY</onMismatch>-->
+    <!--</filter>-->
+  <!--</appender>-->
   <root level="INFO">
     <!-- appender referenced after it is defined -->
-    <appender-ref ref="STDOUT"/>
-  </root> 
+    <!--<appender-ref ref="DBDB-CLASSIC-MYSQL-POOL"/>-->
+    <appender-ref ref="STDOUT"></appender-ref>
+    <!--<appender-ref ref="dbtest"></appender-ref>-->
+  </root>
 </configuration>

@@ -5,6 +5,8 @@ import com.demo.form.PKResponseForm;
 import com.demo.service.PackageService;
 import com.demo.service.PackageServiceImpl;
 import com.demo.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -13,8 +15,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 public class Magicians implements Person{
-
-   long lastTime = System.currentTimeMillis();
+    private static Logger logger = LoggerFactory.getLogger(Magicians.class);
+    long lastTime = System.currentTimeMillis();
 
     public Magicians(long blood, long attack, long defense) {
         this.lastTime = lastTime;
@@ -105,8 +107,8 @@ public class Magicians implements Person{
 //            if (System.currentTimeMillis() - lastTime <1000){
 //                return "一秒内不允许多次攻击";
 //            }
-            long bossBlood = this.attack - boss.getDefense();
-            long myBlood = boss.getAttack() - this.defense;
+            long bossBlood = (long) ((this.attack - boss.getDefense())*GameUtil.getPrecent());
+            long myBlood = (long) ((boss.getAttack() - this.defense)*GameUtil.getPrecent());
             if (myBlood>0){
                 this.blood = this.blood - myBlood;
             }
@@ -124,14 +126,19 @@ public class Magicians implements Person{
                     boss.setBlood(100000);
                     System.out.println("boss刷新");
                 }).start();
+                Package p = packageService.findById(userId);
+                p.setMoney(p.getMoney()+10000);
+                p.setXo(p.getXo()+100);
+                p.setExperienceOrb(p.getExperienceOrb()+100);
+                packageService.save(p);
+                form.setMessage("恭喜你获得了魔石*1000，XO兽*100,特球*100");
             }
-            Package p = packageService.findById(userId);
-            p.setMoney(p.getMoney()+10000);
-            p.setXo(p.getXo()+100);
-            p.setExperienceOrb(p.getExperienceOrb()+100);
-            packageService.save(p);
-            form.setBossBlood((int)boss.getBlood());
-            form.setMyBlood((int)this.getBlood());
+            if (form.getMessage()==null){
+                form.setMessage("砍一下");
+            }
+
+            form.setBossBlood((int)(boss.getBlood()));
+            form.setMyBlood((int)(this.getBlood()));
             form.setMyBloodReduce(myBlood>0?(int)myBlood:0);
             form.setBossBloodReduce(bossBlood>0?(int)bossBlood:0);
             return form;

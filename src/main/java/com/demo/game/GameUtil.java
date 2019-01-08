@@ -61,4 +61,13 @@ public class GameUtil {
     public static HttpHost getProxy(){
         return new HttpHost("127.0.0.1",1080);
     }
+    public static double getPrecent(){
+        double low = 0.6;
+        double hight = 1.2;
+        double x = Math.random();
+        return low+(hight-low)*x;
+    }
+    public static double getPer(){
+        return 0.6+0.4*Math.random();
+    }
 }

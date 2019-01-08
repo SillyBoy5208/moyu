@@ -5,12 +5,14 @@ import com.demo.entity.BB;
 import com.demo.entity.Package;
 import com.demo.form.PKResponseForm;
 import com.demo.game.Boss;
+import com.demo.game.GameUtil;
 import com.demo.game.Magicians;
 import com.demo.service.BBService;
 import com.demo.service.PackageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.xml.ws.Response;
@@ -29,7 +31,8 @@ public class TestController extends BaseController{
     static Boss boss = new Boss(100000,1000,1000);
     static Magicians magicians = new Magicians(1000000000,10000,100);
 
-    @RequestMapping("/PK")
+    @RequestMapping(value = "/PK",produces = "application/json;charset=UTF-8")
+    @ResponseBody
     public PKResponseForm attack(){
         int userId = getUserId();
         System.out.println("pk一次");
@@ -44,13 +47,13 @@ public class TestController extends BaseController{
         ResponseVO responseVO = new ResponseVO();
         if (xo<=100 || expOrb<=100){
             responseVO.setMsg("xo兽或特球不足");
-            return new ResponseVO<>();
+            return responseVO;
         }
         BB bb = bbService.findByBBNameAndIdMaster(bbName,userId);
-        bb.setBbBlood(bb.getBbBlood()+100);
-        bb.setBbAttack(bb.getBbAttack()+50);
-        bb.setBbDefence(bb.getBbDefence()+25);
-        bb.setBbScore(bb.getBbScore()+10);
+        bb.setBbBlood(bb.getBbBlood()+(int)(100*GameUtil.getPer()));
+        bb.setBbAttack(bb.getBbAttack()+(int)(50*GameUtil.getPer()));
+        bb.setBbDefence(bb.getBbDefence()+(int)(25*GameUtil.getPer()));
+        bb.setBbScore(bb.getBbScore()+(int)(10* GameUtil.getPer()));
         bb.setBbStart(bb.getBbScore()/100);
         bbService.save(bb);
         pp.setXo(pp.getXo()-100);
