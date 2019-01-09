@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@EnableAutoConfiguration
 @RequestMapping("equipage")
-public class EquipageController {
+public class EquipageController extends BaseController{
     @Autowired
     EquipageService service;
     @RequestMapping("/strengthen")
-    public String strengthen(String userName,String equipageName){
+    public String strengthen(String equipageName){
+        String userName = getUserName();
+        System.out.println("userName:"+userName);
        Equipage equipage = service.findEquipage(userName,equipageName);
        if (equipage==null){
            return "没有此装备";

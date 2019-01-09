@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.xml.ws.Response;
+import java.util.HashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 @RestController
-@EnableAutoConfiguration
 @RequestMapping("game")
 public class TestController extends BaseController{
     @Autowired
@@ -62,4 +62,5 @@ public class TestController extends BaseController{
         responseVO.setT(bb);
         return responseVO;
     }
+
 }

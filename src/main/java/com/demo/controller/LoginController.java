@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @RestController
-@EnableAutoConfiguration
 @RequestMapping("/login")
 public class LoginController {
     @Autowired

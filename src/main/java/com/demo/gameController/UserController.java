@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@EnableAutoConfiguration
 @RequestMapping("user")
 public class UserController {
     @Autowired

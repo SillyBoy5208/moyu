@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@EnableAutoConfiguration
 @RequestMapping("/testboot")
 public class TestBootController {
     @Resource
@@ -47,4 +46,5 @@ public class TestBootController {
         List<User> list = userService.findAll();
        return list;
     }
+
 }

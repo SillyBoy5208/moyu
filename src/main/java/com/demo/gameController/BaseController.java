@@ -6,12 +6,12 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @RestController
-@EnableAutoConfiguration
 public class BaseController {
     @Autowired
     HttpServletRequest request;
@@ -24,5 +24,14 @@ public class BaseController {
 //        }
         return 4;
 
+    }
+    public String getUserName(){
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie:cookies){
+            if ("loginName".equals(cookie.getName())){
+                return cookie.getValue();
+            }
+        }
+        return null;
     }
 }

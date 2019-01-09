@@ -13,6 +13,5 @@ public class MoyuApplication {
     public static void main(String[] args) {
         SpringApplication.run(MoyuApplication.class, args);
     }
-
 }
 
