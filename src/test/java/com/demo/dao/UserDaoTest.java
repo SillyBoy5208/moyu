@@ -26,10 +26,7 @@ public class UserDaoTest {
 
     @Test
     public void test(){
-       List<User> list =  userService.getAll();
-        System.out.println("list:"+list.size());
-       for(User user:list)
-           System.out.println(user);
+        System.out.println(userDao.getMaxId());
     }
     @Test
     public void test2(){

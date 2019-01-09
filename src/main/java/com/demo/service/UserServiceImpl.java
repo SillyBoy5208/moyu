@@ -23,6 +23,27 @@ public class UserServiceImpl implements UserService{
     UserDao userDao;
 
     @Override
+    public String register(User user) {
+        if (user==null){
+            return "注册失败";
+        }
+        if (user.getUserName().trim()==null || user.getPassword().trim()==null){
+            return "注册失败，用户名或密码不能为空";
+        }
+        int count = userDao.getCount();
+        if (count>1000){
+            return "注册用户超过上限";
+        }
+        User u = userDao.getUserByUserName(user.getUserName());
+        if (u!=null){
+            return "该用户已经存在";
+        }
+
+        userDao.save(user);
+        return "注册成功！";
+    }
+
+    @Override
     public List<User> findAll() {
         return userDao.findAll();
     }

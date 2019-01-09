@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Import;
 @MapperScan({"com.demo.mapper"})
 @Import(WebConfig.class)
 public class MoyuApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(MoyuApplication.class, args);
     }
