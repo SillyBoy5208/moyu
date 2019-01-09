@@ -14,8 +14,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@RestController
-@RequestMapping("/login")
+@Controller
 public class LoginController {
     @Autowired
     UserService userService;
@@ -33,7 +32,7 @@ public class LoginController {
             cookie.setMaxAge(60*60);
             cookie.setPath("/");
             response.addCookie(cookie);
-            return "登陆成功";
+            return "/success";
         }else {
             return "用户名或密码错误，登陆失败";
         }

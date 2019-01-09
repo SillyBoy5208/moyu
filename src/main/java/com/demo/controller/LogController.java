@@ -23,4 +23,8 @@ public class LogController {
     public String hello11(){
         return "hello";
     }
+    @RequestMapping("/sui")
+    public String mobile(){
+        return "/SUI Mobile Demo";
+    }
 }
