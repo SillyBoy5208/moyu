@@ -1,6 +1,21 @@
 package com.demo.entity;
 
-public abstract class Role {
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "role")
+@DynamicInsert
+@DynamicUpdate
+public  class Role {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String name;
     Long HP;
@@ -84,5 +99,4 @@ public abstract class Role {
         this.magicAttacks = magicAttacks;
     }
 
-    public abstract boolean attack(BaseBoss boss);
 }

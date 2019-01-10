@@ -23,8 +23,24 @@ public class LogController {
     public String hello11(){
         return "hello";
     }
-    @RequestMapping("/sui")
+    @RequestMapping("/loginPage")
     public String mobile(){
-        return "/SUI Mobile Demo";
+        return "/login";
+    }
+    @RequestMapping("/gongju")
+    public String gongju(){
+        return "/gongju";
+    }
+    @RequestMapping("/success")
+    public String success(){
+        return "/success";
+    }
+    @RequestMapping("/errorPage")
+    public String error(){
+        return "error";
+    }
+    @RequestMapping("/testFrame")
+    public String testFrame(){
+        return "/testFrame";
     }
 }

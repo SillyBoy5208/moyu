@@ -3,11 +3,11 @@
 <html class="pixel-ratio-1"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SUI Mobile Demo</title>
+    <title>魔域</title>
     <meta name="description" content="MSUI: Build mobile apps with simple HTML, CSS, and JS components.">
     <meta name="author" content="阿里巴巴国际UED前端">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <link rel="shortcut icon" href="http://m.sui.taobao.org/favicon.ico">
+    <link rel="shortcut icon" href="https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/7b7e004b6edacd394acdc13fc9713da4_121_121.jpg">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
@@ -35,25 +35,32 @@ var _hmt = _hmt || [];
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(hm, s);
 })();
-function test() {
-  var  name = document.getElementById("name");
-  var  password=document.getElementById("password")
-  var url = "/login?userName=1111&password=1111";
-  var params = [
-          "userName=刘德华",
-          "password=1111"
-  ];
-  var req = new XMLHttpRequest();
-  req.onreadystatechange = function() {
-    if (req.readyState=== 4) {
-      var responseHeaders = req.getAllResponseHeaders();
-      var data = req.responseText;
-    }
-  }
-  req.open('GET', url, true);
-  req.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-  req.send(null);
-
+function home() {
+    var  name = document.getElementById("name");
+    var  password=document.getElementById("password")
+    var params = [
+        "userName="+name,
+        "password="+password,
+    ];
+    var myUrl = "/login?userName="+name.value+"&password="+password.value;
+    $.ajax({
+        url: myUrl,
+        type: 'GET',
+        success: function (result) {
+            if (result=="success"){
+                window.location.href='/gongju'
+            } else if (result=="用户名或密码错误") {
+                window.location.href='errorPage'
+            }
+            console.log("success")
+            console.log(result)
+        },
+        err: function (status) {
+            //
+            window.location.href='/errorPage'
+            console.log("失败");
+        },
+    });
 }
 </script>
 
@@ -61,7 +68,7 @@ function test() {
   <body><div class="page-group">
     <div id="page-label-input" class="page page-current">
   <header class="bar bar-nav">
-    <h1 class="title">魔域登录</h1>
+    <h1 class="title">登录</h1>
   </header>
   <div class="content native-scroll">
     <div class="list-block">
@@ -93,7 +100,7 @@ function test() {
     <div class="content-block">
       <div class="row">
         <div class="col-50"><a  class="button button-big button-fill button-danger" id="quxiao">取消</a></div>
-        <div class="col-50"><a  class="button button-big button-fill button-success" id="test" onclick="test()">提交</a></div>
+        <div class="col-50"><a  class="button button-big button-fill button-success" id="test" onclick="home()">提交</a></div>
       </div>
     </div>
   </div>

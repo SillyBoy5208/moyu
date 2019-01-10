@@ -1,7 +1,6 @@
 package com.demo.entity;
 
 public class Soldier extends Role {
-    @Override
     public boolean attack(BaseBoss boss) {
         Long myHP = this.getHP();
         Integer myPhysicalAttacks = this.getPhysicalAttacks();
