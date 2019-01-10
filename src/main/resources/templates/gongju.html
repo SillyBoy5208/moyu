@@ -19,11 +19,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
-    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
-     <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.css">
+     <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.js' charset='utf-8'></script>
     <script>
       //ga
     </script>
@@ -43,21 +43,6 @@ function home() {
         type: 'POST',
         dataType: 'json',
         success: function (result) {
-            //
-            var name = result['name'];
-            var hp = result['hp'];
-            var attack = result['attack']
-            var defense = result['defense']
-            document.getElementById("myName").innerText=name;
-            document.getElementById("hp").value=hp;
-            document.getElementById("attack").value=attack;
-            document.getElementById("defense").value=defense;
-            console.log("成功");
-            console.log(result['id'])
-            console.log(name);
-            console.log(hp)
-            console.log(attack)
-            console.log(defense)
         },
         err: function (status) {
             //
@@ -80,39 +65,35 @@ function home() {
     <h1 class="title">工具栏</h1>
   </header>
   <nav class="bar bar-tab">
-    <a class="tab-item external active" href="#" onclick="home()">
+    <a class="tab-item external active" href="#test1">
       <span class="icon icon-me"></span>
       <span class="tab-label">主页</span>
     </a>
-    <a class="tab-item external" href="#">
+    <a class="tab-item external" href="#test2">
       <span class="icon icon-browser"></span>
       <span class="tab-label">世界</span>
       <span class="badge">2</span>
     </a>
-    <a class="tab-item external" href="/sui">
+    <a class="tab-item external" href="#test3">
       <span class="icon icon-emoji"></span>
       <span class="tab-label">Label</span>
     </a>
-    <a class="tab-item external" href="/success">
+    <a class="tab-item external" href="#test2">
       <span class="icon icon-cart"></span>
       <span class="tab-label">Label</span>
     </a>
-    <a class="tab-item external" href="/success">
+    <a class="tab-item external" href="#test3">
       <span class="icon icon-settings"></span>
       <span class="tab-label">Label</span>
     </a>
   </nav>
   <div class="content">
-      <div class="page-group">
-              <iframe href="/testFrame"></iframe>
-      </div>
+
   </div>
-
 </div>
-
     </div>
-     <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+     <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.js' charset='utf-8'></script>
   </body>
 </html>

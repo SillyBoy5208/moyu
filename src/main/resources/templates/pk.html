@@ -17,8 +17,12 @@
 <body>
 <script>
     var icount;
+    var x = 1;
     function start() {
-        icount=  setInterval("pk()","1000");
+        if (x==1){
+            icount=  setInterval("pk()","1000");
+            x =2;
+        }
     }
     function pk() {
         var myUrl = "/game/PK";
@@ -27,10 +31,7 @@
             type: 'POST',
             dataType: "json",
             success: function (result) {
-                if (result['message']=='BOSS还未刷新') {
-                    clearInterval(icount);
-                    return;
-                }
+
                 document.getElementById("message").innerText = result['message'];
                 console.log("success")
                 console.log(result['bossName'])
@@ -49,6 +50,11 @@
                 console.log(bossBloodReduce);
                 console.log(bossBlood);
                 console.log(bossName);
+                if (result['message']=='BOSS还未刷新') {
+                    clearInterval(icount);
+                    x=1;
+                    return;
+                }
 
             },
             err: function (status) {
