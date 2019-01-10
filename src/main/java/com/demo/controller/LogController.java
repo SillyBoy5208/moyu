@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 
 @Controller
+@RequestMapping("/log")
 public class LogController {
     @RequestMapping("/hello")
     public String helloHtml(HashMap<String, Object> map) {
@@ -42,5 +43,9 @@ public class LogController {
     @RequestMapping("/testFrame")
     public String testFrame(){
         return "/testFrame";
+    }
+    @RequestMapping("/pk")
+    public String pk(){
+        return "/pk";
     }
 }

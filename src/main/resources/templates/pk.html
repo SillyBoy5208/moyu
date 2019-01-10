@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>boss</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.css">
+    <link rel="stylesheet" href="http://m.sui.taobao.org/assets/css/demos.css">
+
+</head>
+<body>
+<script>
+    var icount;
+    function start() {
+        icount=  setInterval("pk()","1000");
+    }
+    function pk() {
+        var myUrl = "/game/PK";
+        $.ajax({
+            url: myUrl,
+            type: 'POST',
+            dataType: "json",
+            success: function (result) {
+                if (result['message']=='BOSS还未刷新') {
+                    clearInterval(icount);
+                    return;
+                }
+                document.getElementById("message").innerText = result['message'];
+                console.log("success")
+                console.log(result['bossName'])
+                var bossName = result['bossName'];
+                var myBlood = result['myBlood'];
+                var bossBlood = result['bossBlood'];
+                var myBloodReduce = result['myBloodReduce'] ;
+                var bossBloodReduce = result['bossBloodReduce'];
+                document.getElementById("bossName").innerText = bossName;
+                document.getElementById("bossBlood").innerText = bossBlood;
+                document.getElementById("bossBloodReduce").innerText = "-"+bossBloodReduce;
+                document.getElementById("myBloodReduce").innerText = "-"+myBloodReduce;
+                document.getElementById("myBlood").innerText = myBlood;
+                console.log(myBlood);
+                console.log(myBloodReduce);
+                console.log(bossBloodReduce);
+                console.log(bossBlood);
+                console.log(bossName);
+
+            },
+            err: function (status) {
+                //
+                window.location.href='/errorPage'
+                console.log("失败");
+            },
+        });
+    }
+</script>
+<div class="page-group">
+    <div id="page-grid" class="page">
+        <header class="bar bar-nav">
+            <a class="button button-link button-nav pull-left back" href="/demos">
+                <span class="icon icon-left"></span>
+                返回
+            </a>
+            <h1 class="title"></h1>
+        </header>
+        <div class="content" id=''>
+
+            <div class="content-padded grid-demo">
+                <h2 align="center" id="bossName">巨斧怪</h2>
+                <div class="row no-gutter">
+                    <div class="col-50">我的血量</div>
+                    <div class="col-50">BOSS血量</div>
+                    <div class="col-50" id="myBlood">10000</div>
+                    <div class="col-50" id="bossBlood">10000000</div>
+                </div>
+                <div class="row no-gutter">
+                    <div class="col-50" id="myBloodReduce">-0</div>
+                    <div class="col-50" id="bossBloodReduce">-0</div>
+                </div>
+                <div class="row no-gutter">
+                    <div class="col-100" id="message">999</div>
+                    <div class="col-0"></div>
+                </div>
+                <div class="row">
+                    <div class="col-50"><a href="#" class="button button-big button-fill button-danger">逃跑</a></div>
+                    <div class="col-50"><a href="#" class="button button-big button-fill button-success" onclick="start()">砍它</a></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.js' charset='utf-8'></script>
+
+</body>
+</html>

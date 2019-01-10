@@ -97,6 +97,7 @@ public class Magicians implements Person{
     public synchronized PKResponseForm PK(PackageService packageService , int userId, Monster monster) {
 
         PKResponseForm form = new PKResponseForm();
+        form.setBossName("巨斧怪");
         if (monster instanceof Boss){
             Boss boss = (Boss) monster;
             if (boss.getBlood()<=0){
