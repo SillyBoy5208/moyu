@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.w3.org/1999/xhtml" >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>雷鸣大陆</title>
+    <meta name="description" content="MSUI: Build mobile apps with simple HTML, CSS, and JS components.">
+    <meta name="author" content="阿里巴巴国际UED前端">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/7b7e004b6edacd394acdc13fc9713da4_121_121.jpg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Google Web Fonts -->
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+    <script>
+      //ga
+    </script>
+    <script>
+      window.onload=function() {
+          var myUrl = "/boss/getBossList"
+          $.ajax({
+              url: myUrl,
+              type: 'POST',
+              dataType: 'json',
+              success: function (result) {
+                  var len  = result.length
+                  for (var i = 0 ; i < len;i++){
+                      var boss= result[i];
+                      var  bossName = boss['name']
+                      var blood = boss['blood']
+                      var attack=boss['attack']
+                      var defense=boss['defense']
+                      var level=boss['level']
+                      var  quality = boss['quality']
+                      var state=boss['state']
+                      var imgUrl = boss['imgUrl']
+                      add(bossName,quality,level,imgUrl)
+                  }
+              },
+              err: function (status) {
+                  //
+                  console.log("失败");
+              },
+          });
+      }
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?ba76f8230db5f616edc89ce066670710";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+function add(name,quality,level,imgUrl){
+    var bossName = ""
+    var bossSrc = ""
+    var bossState = "";
+    var lll = document.getElementById("bossList");
+    var li = document.createElement("li");
+    lll.appendChild(li);
+    var a = document.createElement("a");
+    a.setAttribute("href",encodeURI("/log/pk?bossName="+name));
+    console.log(name)
+    a.setAttribute("external","test");
+    a.setAttribute("class","item-link item-content");
+    // a.href="#";
+    // a.class ="item-link item-content";
+    li.appendChild(a);
+    var  div1 = document.createElement("div");
+    //div1.class = "item-media";
+    div1.setAttribute("class","item-media");
+    a.appendChild(div1);
+    var img = document.createElement("img");
+    img.src = imgUrl;
+    img.width="80";
+    div1.appendChild(img);
+    var div2 = document.createElement("div");
+    //div2.class="item-inner";
+    div2.setAttribute("class","item-inner");
+    a.appendChild(div2);
+    var div4 = document.createElement("div");
+    // div4.class = "item-subtitle";
+    div4.innerText = name;
+    div4.setAttribute("class","item-subtitle");
+    div2.appendChild(div4);
+    var div3 = document.createElement("div");
+    // div3.class="item-title-row";
+    div3.setAttribute("class","item-title-row");
+    div2.appendChild(div3);
+    var div5 = document.createElement("div");
+    var div6 = document.createElement("div");
+    div5.class= "item-title";
+    div6.class= "item-after";
+    div5.innerText = quality
+    div6.innerText = level
+    div5.setAttribute("class","item-title");
+    div6.setAttribute("class","item-after");
+    div3.appendChild(div5);
+    div3.appendChild(div6);
+
+}
+</script>
+
+  </head>
+  <body>
+    <div class="page-group">
+    <div id="page-songs-list" class="page">
+  <header class="bar bar-nav">
+    <a class="button button-link button-nav pull-left back" href="/demos/list">
+      <span class="icon icon-left"></span>
+      返回
+    </a>
+    <h1 class="title">雷鸣大陆</h1>
+  </header>
+  <div class="content pull-to-refresh-content">
+    <div class="content-block-title"></div>
+    <div class="list-block media-list">
+      <ul id="bossList">
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+    </div>
+     <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+  </body>
+</html>

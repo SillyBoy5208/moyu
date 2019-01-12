@@ -1,6 +1,7 @@
 package com.demo.gameController;
 
 import com.common.ResponseVO;
+import com.demo.boss.BossUtil;
 import com.demo.entity.BB;
 import com.demo.entity.Package;
 import com.demo.form.PKResponseForm;
@@ -33,10 +34,10 @@ public class TestController extends BaseController{
 
     @RequestMapping(value = "/PK",produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public PKResponseForm attack(){
+    public PKResponseForm attack(String bossName){
         int userId = getUserId();
         System.out.println("pk一次");
-       return magicians.PK(packageService,userId,boss);
+       return magicians.PK(packageService,userId, BossUtil.bossMap_lm.get(bossName));
     }
     @RequestMapping("/upBB")
     public ResponseVO<BB> upBB(String bbName){

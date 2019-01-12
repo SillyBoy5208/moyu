@@ -48,4 +48,8 @@ public class LogController {
     public String pk(){
         return "/pk";
     }
+    @RequestMapping("bossList")
+    public String bossList(){
+        return "/bossList";
+    }
 }

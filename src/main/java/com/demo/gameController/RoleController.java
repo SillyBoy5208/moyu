@@ -12,7 +12,7 @@ public class RoleController extends BaseController{
         Role role = new Role();
         role.setHP(1000000L);
         role.setId(1L);
-        role.setLevel(1);
+        role.setLevel(10000);
         role.setMagicAttacks(100000);
         role.setPhysicalDefense(100000);
         role.setName("天启");
