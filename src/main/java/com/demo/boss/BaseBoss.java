@@ -3,6 +3,24 @@ package com.demo.boss;
 public abstract class BaseBoss {
     public Long blood;
     public String name;
+    public Long lastTime;
+
+    public Long getTotalBlood() {
+        return totalBlood;
+    }
+
+    public void setTotalBlood(Long totalBlood) {
+        this.totalBlood = totalBlood;
+    }
+
+    public Long totalBlood;
+    public Long getLastTime() {
+        return lastTime;
+    }
+
+    public void setLastTime(Long lastTime) {
+        this.lastTime = lastTime;
+    }
 
     public Long getBlood() {
         return blood;

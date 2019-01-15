@@ -13,6 +13,7 @@ import java.util.List;
 public interface UserDao extends JpaSpecificationExecutor<User>,JpaRepository<User,Integer> {
     User findUserByUserName(String name);
     List<User> findAll();
+    User findUserById(int id);
     User getUserByUserName(String userName);
     @Query(value = "SELECT MAX (id) FROM User ")
     int getMaxId();

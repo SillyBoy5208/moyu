@@ -1,6 +1,8 @@
 package com.demo.controller;
 
+import com.demo.entity.Role;
 import com.demo.entity.User;
+import com.demo.game.Magicians;
 import com.demo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

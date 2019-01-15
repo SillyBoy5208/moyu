@@ -4,8 +4,9 @@ import com.demo.boss.BaseBoss;
 
 public class DiJing extends BaseBoss {
     public DiJing(){
-        this(1000L,"地精",111l,455l,5,"普通",1);
+        this(1000L,"地精BOSS",111l,455l,5,"普通",1);
         this.imgUrl = "http://images.17173.com/moyu/images/monster/lei/4s.jpg";
+        this.totalBlood = 1000L;
     }
     public DiJing(Long blood, String name, Long attack, Long defense, Integer level, String quality,Integer state) {
         this.blood = blood;

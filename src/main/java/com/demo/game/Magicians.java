@@ -95,7 +95,7 @@ public class Magicians extends Person{
     }
     public synchronized PKResponseForm PK(PackageService packageService , int userId, BaseBoss boss){
         PKResponseForm form = new PKResponseForm();
-        if (boss==null || boss.getBlood()<=0){
+        if (boss==null || boss.getBlood()<=0 ||boss.getState()==0){
                 form.setMessage("BOSS还未刷新");
                 form.setMyBlood((int)this.getBlood());
                 return form;
@@ -120,22 +120,24 @@ public class Magicians extends Person{
             form.setMyBlood(this.getBlood()<0?0:(int)this.getBlood());
             lastTime = System.currentTimeMillis();
         if (boss.getBlood()<=0){
-            BossUtil.bossMap_lm.remove(boss.getName(),boss);
-            new Thread(()->{
-                try {
-                    Thread.sleep(10000*10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    BossUtil.bossMap_lm.put(boss.getName(),boss.getClass().newInstance());
-                } catch (InstantiationException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("boss刷新");
-            }).start();
+            boss.setState(0);
+            boss.setLastTime(System.currentTimeMillis());
+           // BossUtil.bossMap_lm.remove(boss.getName(),boss);
+//            new Thread(()->{
+//                try {
+//                    Thread.sleep(10000*10);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                try {
+//                    BossUtil.bossMap_lm.put(boss.getName(),boss.getClass().newInstance());
+//                } catch (InstantiationException e) {
+//                    e.printStackTrace();
+//                } catch (IllegalAccessException e) {
+//                    e.printStackTrace();
+//                }
+//                System.out.println("boss刷新");
+//            }).start();
             Package p = packageService.findById(userId);
             p.setMoney(p.getMoney()+10000);
             p.setXo(p.getXo()+100);

@@ -27,14 +27,15 @@ public class Chuanqi {
           String url8 = "http://mu.xyhero.com/cq/s11/ditu/12/map6.php";//红野猪B
         String url9 = "http://mu.xyhero.com/cq/s11/ditu/13/map1.php";//角蝇A
         String url10 = "http://mu.xyhero.com/cq/s11/ditu/14/map7.php";//野猪王
+        String uuuu= "http://mu.xyhero.com/moyu/s8/huanshou/bb21/hhzd.php";
      //   String url13 = "http://mu.xyhero.com/cq/s11/ditu/11/map4.php";//钳虫C
 //        String url8 = "http://mu.xyhero.com/cq/s11/ditu/9/map1.php";
 //        String url9 = "http://mu.xyhero.com/cq/s11/ditu/qugui/map11.php";//废弃矿洞恶鬼（一刀十怪）
 //        String url10 ="http://mu.xyhero.com/cq/s11/ditu/qugui/map12.php";//废弃矿洞恶鬼（一刀百怪）
 //        String url11 = "http://mu.xyhero.com/cq/s11/ditu/qugui/map14.php";//废弃矿洞恶鬼（一刀万怪）
-        String[] urls = {url72};
-       String cookie = GameUtil.getCookie("netty","2672665a",GameUtil.chuanQi11);
-        //String cookie = "pgv_pvi=3159361536; pgv_si=s278248448; PHPSESSID=5p8r5e1oenoqs5thtakn4q4lpfcbu7ij; __tins__19587789=%7B%22sid%22%3A%201546221939539%2C%20%22vd%22%3A%201%2C%20%22expires%22%3A%201546223739539%7D; __51cke__=; __51laig__=3";
+        String[] urls = {uuuu};
+//       String cookie = GameUtil.getCookie("netty","2672665a",GameUtil.chuanQi11);
+        String cookie ="pgv_pvi=3083932672; pgv_si=s6485246976; PHPSESSID=vmd7vuo23vt1imcnoag7vj79q2cbkvri; __tins__19587789=%7B%22sid%22%3A%201547348658759%2C%20%22vd%22%3A%202%2C%20%22expires%22%3A%201547350490388%7D; __51cke__=; __51laig__=2";
 
         HttpHost proxy = new HttpHost("127.0.0.1",1080);
         RequestConfig config = RequestConfig.custom().setConnectionRequestTimeout(10*1000).setSocketTimeout(10*1000).setProxy(proxy).build();
@@ -66,7 +67,7 @@ public class Chuanqi {
                            break;
                        }
                        System.out.println(len+":"+txt);
-                       Thread.sleep(1000);
+//                       Thread.sleep(20);
                 get.releaseConnection();
                 httpClient.close();
             }

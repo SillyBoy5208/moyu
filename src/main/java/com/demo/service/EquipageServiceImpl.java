@@ -20,4 +20,18 @@ public class EquipageServiceImpl implements EquipageService{
     public Equipage save(Equipage equipage) {
         return equipageDao.save(equipage);
     }
+
+    @Override
+    public Equipage strengthen(Equipage equipage) {
+        int mohunLevel = equipage.getMohunLevel();
+        if (mohunLevel>=12){
+
+        }
+        return null;
+    }
+
+    @Override
+    public Equipage upgradeEquipage(Equipage equipage) {
+        return null;
+    }
 }

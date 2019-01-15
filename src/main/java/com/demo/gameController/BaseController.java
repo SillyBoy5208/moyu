@@ -26,12 +26,13 @@ public class BaseController {
 
     }
     public String getUserName(){
-        Cookie[] cookies = request.getCookies();
-        for (Cookie cookie:cookies){
-            if ("loginName".equals(cookie.getName())){
-                return cookie.getValue();
-            }
-        }
-        return null;
+        return "刘德华";
+//        Cookie[] cookies = request.getCookies();
+//        for (Cookie cookie:cookies){
+//            if ("loginName".equals(cookie.getName())){
+//                return cookie.getValue();
+//            }
+//        }
+//        return null;
     }
 }

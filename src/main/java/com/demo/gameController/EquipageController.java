@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class EquipageController extends BaseController{
     @Autowired
     EquipageService service;
-    @RequestMapping("/strengthen")
-    public String strengthen(String equipageName){
+
+    @RequestMapping("/upgrade")
+    public String upgrade(String equipageName){
         String userName = getUserName();
         System.out.println("userName:"+userName);
        Equipage equipage = service.findEquipage(userName,equipageName);
@@ -35,4 +36,25 @@ public class EquipageController extends BaseController{
        }
        return null;
     }
+    @RequestMapping("/strengthen/mohun/wq")
+    public String strengthen(String equipageName){
+        String userName= getUserName();
+        Equipage equipage = service.findEquipage(userName,"武器");
+        int level1 = equipage.getMohunLevel();
+        if (equipage==null){
+            return "没有此武器";
+        }
+        Equipage equipage1 = EquipageUtil.strengthenMohun(equipage);
+        int level2 = equipage1.getMohunLevel();
+        if (level1==level2){
+            return "强化失败";
+        }
+        if (level1< level2){
+            System.out.println("mohun level:"+level2);
+            service.save(equipage1);
+            return "强化成功";
+        }
+        return null;
+    }
+
 }

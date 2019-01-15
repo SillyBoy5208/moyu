@@ -5,8 +5,11 @@ import com.demo.dto.PageDTO;
 import com.demo.dto.PageQueryDTO;
 import com.demo.entity.User;
 import com.demo.mapper.UserMapper;
+import org.hibernate.annotations.Cache;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -21,6 +24,12 @@ import java.util.List;
 public class UserServiceImpl implements UserService{
     @Resource
     UserDao userDao;
+
+    @Override
+    @CachePut(value ="com.demo.entity.User",key = "'com.demo.entity.User'+#user.id")
+    public User update(User user) {
+        return userDao.save(user);
+    }
 
     @Override
     public String register(User user) {
@@ -49,8 +58,10 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    @Cacheable(value = "com.demo.entity.User",key = "'com.demo.entity.User'+#id")
     public User getUserById(int userId) {
-        return null;
+        System.out.println("从数据库读取");
+        return userDao.findUserById(userId);
     }
 
     @Override

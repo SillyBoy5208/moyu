@@ -4,8 +4,9 @@ import com.demo.boss.BaseBoss;
 
 public class LuJiaoShou extends BaseBoss {
     public LuJiaoShou(){
-        this(10000L,"鹿角兽",1000L,1000L,1,"极品",1);
+        this(10000L,"鹿角兽BOSS",1000L,1000L,1,"极品",1);
         this.imgUrl="http://images.17173.com/moyu/images/monster/lei/1s.jpg";
+        this.totalBlood = 10000L;
     }
 
     public LuJiaoShou(Long blood, String name, Long attack, Long defense, Integer level, String quality,Integer state) {
