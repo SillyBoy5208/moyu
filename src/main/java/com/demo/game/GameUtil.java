@@ -19,15 +19,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameUtil {
+    public static void main(String[] args) throws  Exception{
+        System.out.println(getCookie("凉茶","2672665a",moYu9));
+    }
     public static final String chuanShi8 ="http://mu.xyhero.com/chuanqi/s2/denglu.php";
-    public static final String moYu9 = "http://mu.xyhero.com/moyu/s9/dengl";
+    public static final String moYu9 = "http://mu.xyhero.com/moyu/s8/denglu.php";
     public static final String chuanQi11 = "http://mu.xyhero.com/cq/s11/denglu.php";
     public static String getCookie(String username,String password,String url) throws Exception{
         CookieStore cookieStore = new BasicCookieStore();
         CloseableHttpClient client = HttpClientBuilder.create().setDefaultRequestConfig(RequestConfig.custom().setProxy(new HttpHost("127.0.0.1",1080)).build()).setDefaultCookieStore(cookieStore).build();
         HttpPost post = new HttpPost(url);
         post.setHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36");
-        post.setHeader("Referer","http://mu.xyhero.com/moyu/s8/indexdl.php");
         post.setHeader("Content-Type","application/x-www-form-urlencoded");
         NameValuePair name = new BasicNameValuePair("username",username);
         NameValuePair pass = new BasicNameValuePair("password",password);

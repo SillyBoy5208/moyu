@@ -8,7 +8,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@MapperScan({"com.demo.mapper"})
+@MapperScan({"com.demo.mapper","com.demo.mybatis.mapper","com.mybatis.mapper"})
 @Import(WebConfig.class)
 @EnableCaching
 public class MoyuApplication {

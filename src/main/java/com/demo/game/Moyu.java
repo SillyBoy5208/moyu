@@ -11,6 +11,7 @@ import org.jsoup.nodes.Document;
 public class Moyu {
     public static void main(String[] args) throws Exception{
         String cookie = "";
+        //String cookie = GameUtil.getCookie()//输入用户名密码自动获取cookie
         String[] bossAddress = {
 
         };

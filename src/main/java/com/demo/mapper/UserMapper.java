@@ -1,5 +1,6 @@
 package com.demo.mapper;
 
+import com.demo.dto.TestDTO;
 import com.demo.entity.User;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -9,6 +10,7 @@ import java.util.Map;
 
 @Repository
 public interface UserMapper {
+    List<TestDTO> getAll();
     List<User> findAll();
     List<User> queryUserBySql(Map<String,Object> data);
 }

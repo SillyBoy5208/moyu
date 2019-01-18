@@ -10,6 +10,9 @@
     <sql id="Base_Column_List" >
         id, user_name, password, age
     </sql>
+    <select id="getAll" resultType="com.demo.dto.TestDTO">
+        SELECT * FROM user INNER JOIN person ON user.id = person.ps_id
+    </select>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
         select
         <include refid="Base_Column_List" />
