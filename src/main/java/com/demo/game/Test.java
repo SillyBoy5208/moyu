@@ -1,14 +1,8 @@
 package com.demo.game;
 
-import antlr.StringUtils;
-import org.apache.http.HttpHost;
-import org.apache.http.client.config.RequestConfig;
+import com.game.GameUtil;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.jsoup.helper.StringUtil;
-
-import java.math.BigInteger;
 
 public class Test {
     public static void main(String[] args) throws Exception{

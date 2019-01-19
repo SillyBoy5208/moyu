@@ -1,20 +1,12 @@
 package com.demo.game;
 
 import com.demo.boss.BaseBoss;
-import com.demo.boss.BossUtil;
 import com.demo.entity.Package;
 import com.demo.form.PKResponseForm;
 import com.demo.service.PackageService;
-import com.demo.service.PackageServiceImpl;
-import com.demo.service.UserService;
+import com.game.GameUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 
 public class Magicians extends Person{
     private static Logger logger = LoggerFactory.getLogger(Magicians.class);
@@ -107,7 +99,7 @@ public class Magicians extends Person{
         long myBloodReduce = boss.getAttack() - this.getAttack();
             long bossBloodReduce = this.getAttack() - boss.getDefense();
             if (myBloodReduce>0){
-                myBloodReduce = (int)(myBloodReduce*GameUtil.getPrecent());
+                myBloodReduce = (int)(myBloodReduce* GameUtil.getPrecent());
                 this.setBlood(this.getBlood()-myBloodReduce);
                 form.setMyBloodReduce((int)(myBloodReduce));
             }

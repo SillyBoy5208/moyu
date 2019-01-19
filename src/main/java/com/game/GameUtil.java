@@ -1,4 +1,4 @@
-package com.demo.game;
+package com.game;
 
 import org.apache.http.HttpHost;
 import org.apache.http.NameValuePair;

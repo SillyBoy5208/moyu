@@ -2,20 +2,11 @@ package com.demo.entity;
 
 import com.demo.boss.BaseBoss;
 import com.demo.boss.BossUtil;
-import com.demo.entity.Package;
 import com.demo.form.PKResponseForm;
-import com.demo.game.GameUtil;
+import com.game.GameUtil;
 import com.demo.service.PackageService;
-import com.demo.service.PackageServiceImpl;
-import com.demo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 
 public class Person{
     private static Logger logger = LoggerFactory.getLogger(Person.class);
